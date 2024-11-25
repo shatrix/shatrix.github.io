@@ -1,0 +1,214 @@
+https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt
+https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts
+https://v.firebog.net/hosts/static/w3kbl.txt
+https://adaway.org/hosts.txt
+https://v.firebog.net/hosts/AdguardDNS.txt
+https://v.firebog.net/hosts/Admiral.txt
+https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt
+https://v.firebog.net/hosts/Easylist.txt
+https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext
+https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts
+https://raw.githubusercontent.com/bigdargon/hostsVN/master/hosts
+https://v.firebog.net/hosts/Easyprivacy.txt
+https://v.firebog.net/hosts/Prigent-Ads.txt
+https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts
+https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt
+https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt
+https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt
+https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt
+https://v.firebog.net/hosts/Prigent-Crypto.txt
+https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts
+https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt
+https://phishing.army/download/phishing_army_blocklist_extended.txt
+https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt
+https://v.firebog.net/hosts/RPiList-Malware.txt
+https://v.firebog.net/hosts/RPiList-Phishing.txt
+https://raw.githubusercontent.com/Spam404/lists/master/main-blacklist.txt
+https://raw.githubusercontent.com/AssoEchap/stalkerware-indicators/master/generated/hosts
+https://urlhaus.abuse.ch/downloads/hostfile/
+https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser
+https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list
+https://raw.githubusercontent.com/anudeepND/blacklist/master/facebook.txt
+
+
+
+
+
+
+
+
+
+
+
+
+filters:
+    - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt
+    name: AdGuard DNS filter
+    id: 1
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_49.txt
+    name: HaGeZi's Ultimate Blocklist
+    id: 1732531223
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_33.txt
+    name: Steven Black's List
+    id: 1732531225
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_45.txt
+    name: HaGeZi's Allowlist Referral
+    id: 1732531226
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_46.txt
+    name: HaGeZi's Anti-Piracy Blocklist
+    id: 1732531227
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_47.txt
+    name: HaGeZi's Gambling Blocklist
+    id: 1732531228
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_44.txt
+    name: HaGeZi's Threat Intelligence Feeds
+    id: 1732531241
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_55.txt
+    name: HaGeZi's Badware Hoster Blocklist
+    id: 1732531243
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_54.txt
+    name: HaGeZi's DynDNS Blocklist
+    id: 1732531244
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_52.txt
+    name: HaGeZi's Encrypted DNS/VPN/TOR/Proxy Bypass
+    id: 1732531245
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_56.txt
+    name: HaGeZi's The World's Most Abused TLDs
+    id: 1732531246
+  - enabled: true
+    url: https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt
+    name: KADhosts
+    id: 1001
+  - enabled: true
+    url: https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts
+    name: FadeMind Spam Hosts
+    id: 1002
+  - enabled: true
+    url: https://v.firebog.net/hosts/static/w3kbl.txt
+    name: Firebog W3KBL
+    id: 1003
+  - enabled: true
+    url: https://adaway.org/hosts.txt
+    name: AdAway Hosts
+    id: 1004
+  - enabled: true
+    url: https://v.firebog.net/hosts/AdguardDNS.txt
+    name: Firebog AdguardDNS
+    id: 1005
+  - enabled: true
+    url: https://v.firebog.net/hosts/Admiral.txt
+    name: Firebog Admiral
+    id: 1006
+  - enabled: true
+    url: https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt
+    name: AnudeepND Adservers
+    id: 1007
+  - enabled: true
+    url: https://v.firebog.net/hosts/Easylist.txt
+    name: Firebog Easylist
+    id: 1008
+  - enabled: true
+    url: https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext
+    name: PGL YoYo Adservers
+    id: 1009
+  - enabled: true
+    url: https://raw.githubusercontent.com/FadeMind/hosts.extras/master/UncheckyAds/hosts
+    name: FadeMind Unchecky Ads
+    id: 1010
+  - enabled: true
+    url: https://raw.githubusercontent.com/bigdargon/hostsVN/master/hosts
+    name: Bigdargon HostsVN
+    id: 1011
+  - enabled: true
+    url: https://v.firebog.net/hosts/Easyprivacy.txt
+    name: Firebog Easyprivacy
+    id: 1012
+  - enabled: true
+    url: https://v.firebog.net/hosts/Prigent-Ads.txt
+    name: Firebog Prigent-Ads
+    id: 1013
+  - enabled: true
+    url: https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts
+    name: FadeMind 2o7Net
+    id: 1014
+  - enabled: true
+    url: https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt
+    name: CrazyMax WindowsSpyBlocker
+    id: 1015
+  - enabled: true
+    url: https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt
+    name: Frogeye First-Party Trackers
+    id: 1016
+  - enabled: true
+    url: https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt
+    name: DandelionSprout Anti-Malware
+    id: 1017
+  - enabled: true
+    url: https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt
+    name: OSINT Threat Intel Latest Domains
+    id: 1018
+  - enabled: true
+    url: https://v.firebog.net/hosts/Prigent-Crypto.txt
+    name: Firebog Prigent-Crypto
+    id: 1019
+  - enabled: true
+    url: https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts
+    name: FadeMind Risk
+    id: 1020
+  - enabled: true
+    url: https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt
+    name: Mandiant APT1 Report Appendix D
+    id: 1021
+  - enabled: true
+    url: https://phishing.army/download/phishing_army_blocklist_extended.txt
+    name: Phishing Army Extended Blocklist
+    id: 1022
+  - enabled: true
+    url: https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt
+    name: NoTrack Malware Blocklist
+    id: 1023
+  - enabled: true
+    url: https://v.firebog.net/hosts/RPiList-Malware.txt
+    name: Firebog RPiList-Malware
+    id: 1024
+  - enabled: true
+    url: https://v.firebog.net/hosts/RPiList-Phishing.txt
+    name: Firebog RPiList-Phishing
+    id: 1025
+  - enabled: true
+    url: https://raw.githubusercontent.com/Spam404/lists/master/main-blacklist.txt
+    name: Spam404 Main Blacklist
+    id: 1026
+  - enabled: true
+    url: https://raw.githubusercontent.com/AssoEchap/stalkerware-indicators/master/generated/hosts
+    name: Stalkerware Indicators
+    id: 1027
+  - enabled: true
+    url: https://urlhaus.abuse.ch/downloads/hostfile/
+    name: URLHaus Hostfile
+    id: 1028
+  - enabled: true
+    url: https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser
+    name: Zerodot1 CoinBlocker
+    id: 1029
+  - enabled: true
+    url: https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list
+    name: ChadMayfield PiHole Porn Blocklist
+    id: 1030
+  - enabled: true
+    url: https://raw.githubusercontent.com/anudeepND/blacklist/master/facebook.txt
+    name: AnudeepND Facebook Blocklist
+    id: 1032
+
+
