@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "sources": [
     {
       "id": "bbc_arabic",
@@ -180,12 +180,6 @@
       "name": "TaqniaTimes",
       "nameArabic": "تقنية تايمز",
       "rssUrl": "https://taqniatimes.com/rss/latest-posts"
-    },
-    {
-      "id": "koorapress",
-      "name": "KooraPress",
-      "nameArabic": "كورة بريس",
-      "rssUrl": "https://ar.koorapress.com/feed/"
     },
     {
       "id": "3sri",
