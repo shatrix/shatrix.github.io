@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "bbc_arabic",
+      "name": "BBC Arabic",
+      "nameArabic": "بي بي سي عربي",
+      "rssUrl": "https://feeds.bbci.co.uk/arabic/rss.xml"
+    },
+    {
+      "id": "dw_arabic",
+      "name": "DW Arabic",
+      "nameArabic": "دويتشه فيله عربي",
+      "rssUrl": "https://rss.dw.com/xml/rss-ar-all"
+    },
+    {
+      "id": "dw_arabic_sci",
+      "name": "DW Science & Tech",
+      "nameArabic": "دويتشه فيله - علوم وتكنولوجيا",
+      "rssUrl": "https://rss.dw.com/xml/rss-ar-sci"
+    },
+    {
+      "id": "dw_arabic_cul",
+      "name": "DW Culture",
+      "nameArabic": "دويتشه فيله - ثقافة ومجتمع",
+      "rssUrl": "https://rss.dw.com/xml/rss-ar-cul"
+    },
+    {
+      "id": "france24",
+      "name": "France 24",
+      "nameArabic": "فرانس 24",
+      "rssUrl": "https://www.france24.com/ar/rss"
+    },
+    {
+      "id": "france24_me",
+      "name": "France 24 Middle East",
+      "nameArabic": "فرانس 24 - الشرق الأوسط",
+      "rssUrl": "https://www.france24.com/ar/الشرق-الأوسط/rss"
+    },
+    {
+      "id": "france24_eco",
+      "name": "France 24 Economy",
+      "nameArabic": "فرانس 24 - اقتصاد",
+      "rssUrl": "https://www.france24.com/ar/اقتصاد/rss"
+    },
+    {
+      "id": "france24_sports",
+      "name": "France 24 Sports",
+      "nameArabic": "فرانس 24 - رياضة",
+      "rssUrl": "https://www.france24.com/ar/رياضة/rss"
+    },
+    {
+      "id": "cnn_arabic",
+      "name": "CNN Arabic",
+      "nameArabic": "سي إن إن عربي",
+      "rssUrl": "https://arabic.cnn.com/api/v1/rss/rss.xml"
+    },
+    {
+      "id": "cnn_arabic_tech",
+      "name": "CNN Tech",
+      "nameArabic": "سي إن إن - تقنية",
+      "rssUrl": "https://arabic.cnn.com/api/v1/rss/tech/rss.xml"
+    },
+    {
+      "id": "cnn_arabic_sport",
+      "name": "CNN Sport",
+      "nameArabic": "سي إن إن - رياضة",
+      "rssUrl": "https://arabic.cnn.com/api/v1/rss/sport/rss.xml"
+    },
+    {
+      "id": "cnn_arabic_health",
+      "name": "CNN Health",
+      "nameArabic": "سي إن إن - صحة",
+      "rssUrl": "https://arabic.cnn.com/api/v1/rss/health/rss.xml"
+    },
+    {
+      "id": "cnn_arabic_biz",
+      "name": "CNN Business",
+      "nameArabic": "سي إن إن - اقتصاد",
+      "rssUrl": "https://arabic.cnn.com/api/v1/rss/business/rss.xml"
+    },
+    {
+      "id": "cnn_arabic_sci",
+      "name": "CNN Science",
+      "nameArabic": "سي إن إن - علوم",
+      "rssUrl": "https://arabic.cnn.com/api/v1/rss/science/rss.xml"
+    },
+    {
+      "id": "aawsat",
+      "name": "Asharq Al-Awsat",
+      "nameArabic": "الشرق الأوسط",
+      "rssUrl": "https://aawsat.com/feed"
+    },
+    {
+      "id": "alquds",
+      "name": "Al Quds Al Arabi",
+      "nameArabic": "القدس العربي",
+      "rssUrl": "https://www.alquds.co.uk/feed/"
+    },
+    {
+      "id": "aljazeera",
+      "name": "Al Jazeera",
+      "nameArabic": "الجزيرة",
+      "rssUrl": "https://www.aljazeera.net/feed"
+    },
+    {
+      "id": "sky_arabic",
+      "name": "Sky News Arabia",
+      "nameArabic": "سكاي نيوز عربية",
+      "rssUrl": "https://www.skynewsarabia.com/rss.xml"
+    },
+    {
+      "id": "alaraby",
+      "name": "Al Araby Al Jadeed",
+      "nameArabic": "العربي الجديد",
+      "rssUrl": "https://www.alaraby.co.uk/feed"
+    },
+    {
+      "id": "almasry",
+      "name": "Al-Masry Al-Youm",
+      "nameArabic": "المصري اليوم",
+      "rssUrl": "https://www.almasryalyoum.com/rss/rssfeeds"
+    },
+    {
+      "id": "noonpost",
+      "name": "Noon Post",
+      "nameArabic": "نون بوست",
+      "rssUrl": "https://www.noonpost.com/feed/"
+    },
+    {
+      "id": "aitnews",
+      "name": "AIT News",
+      "nameArabic": "البوابة العربية للأخبار التقنية",
+      "rssUrl": "https://aitnews.com/feed/"
+    },
+    {
+      "id": "arabhardware",
+      "name": "Arab Hardware",
+      "nameArabic": "عرب هاردوير",
+      "rssUrl": "https://arabhardware.net/feed/"
+    },
+    {
+      "id": "dailymedicalinfo",
+      "name": "DailyMedicalInfo",
+      "nameArabic": "ديلي ميديكال إنفو",
+      "rssUrl": "https://www.dailymedicalinfo.com/feed/"
+    },
+    {
+      "id": "7iber",
+      "name": "7iber",
+      "nameArabic": "حبر",
+      "rssUrl": "https://www.7iber.com/feed/"
+    },
+    {
+      "id": "arabianbusiness",
+      "name": "Arabian Business",
+      "nameArabic": "أريبيان بزنس",
+      "rssUrl": "https://arabic.arabianbusiness.com/feed"
+    },
+    {
+      "id": "investing",
+      "name": "Investing.com",
+      "nameArabic": "Investing.com عربي",
+      "rssUrl": "https://sa.investing.com/rss/news.rss"
+    },
+    {
+      "id": "techwd",
+      "name": "Tech-WD",
+      "nameArabic": "عالم التقنية",
+      "rssUrl": "https://www.tech-wd.com/wd/feed/"
+    },
+    {
+      "id": "unlimittech",
+      "name": "Unlimit-Tech",
+      "nameArabic": "التقنية بلا حدود",
+      "rssUrl": "https://www.unlimit-tech.com/feed/"
+    },
+    {
+      "id": "taqniatimes",
+      "name": "TaqniaTimes",
+      "nameArabic": "تقنية تايمز",
+      "rssUrl": "https://taqniatimes.com/rss/latest-posts"
+    },
+    {
+      "id": "koorapress",
+      "name": "KooraPress",
+      "nameArabic": "كورة بريس",
+      "rssUrl": "https://ar.koorapress.com/feed/"
+    },
+    {
+      "id": "3sri",
+      "name": "3sri.net",
+      "nameArabic": "عصري",
+      "rssUrl": "https://3sri.net/feed"
+    }
+  ]
+}
