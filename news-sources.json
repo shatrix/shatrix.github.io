@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 7,
   "sources": [
     {
       "id": "bbc_arabic",
@@ -402,14 +402,6 @@
       "iconUrl": "https://www.google.com/s2/favicons?domain=sputnikarabic.ae&sz=128"
     },
     {
-      "id": "وكالة_فيدس",
-      "name": "وكالة فيدس",
-      "nameArabic": "وكالة فيدس",
-      "rssUrl": "https://www.fides.org/rss",
-      "categoryId": "news",
-      "iconUrl": "https://www.google.com/s2/favicons?domain=www.fides.org&sz=128"
-    },
-    {
       "id": "فوربس_الشرق_الأوسط",
       "name": "فوربس الشرق الأوسط",
       "nameArabic": "فوربس الشرق الأوسط",
@@ -578,14 +570,6 @@
       "iconUrl": "https://www.google.com/s2/favicons?domain=www.capsuleh.com&sz=128"
     },
     {
-      "id": "الكونسلتو",
-      "name": "الكونسلتو",
-      "nameArabic": "الكونسلتو",
-      "rssUrl": "https://www.elconsolto.com/feed/sitemap",
-      "categoryId": "health",
-      "iconUrl": "https://www.google.com/s2/favicons?domain=www.elconsolto.com&sz=128"
-    },
-    {
       "id": "صحتك",
       "name": "صحتك",
       "nameArabic": "صحتك",
@@ -600,6 +584,30 @@
       "rssUrl": "https://nok6a.net/feed",
       "categoryId": "variety",
       "iconUrl": "https://www.google.com/s2/favicons?domain=nok6a.net&sz=128"
+    },
+    {
+      "id": "الشرق_الأوسط_فنون",
+      "name": "الشرق الأوسط - فنون",
+      "nameArabic": "الشرق الأوسط - فنون",
+      "rssUrl": "https://aawsat.com/feed/arts",
+      "categoryId": "variety",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=aawsat.com&sz=128"
+    },
+    {
+      "id": "الشرق_الأوسط_سياحة",
+      "name": "الشرق الأوسط - سياحة",
+      "nameArabic": "الشرق الأوسط - سياحة",
+      "rssUrl": "https://aawsat.com/feed/travel",
+      "categoryId": "variety",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=aawsat.com&sz=128"
+    },
+    {
+      "id": "الترا_صوت",
+      "name": "الترا صوت",
+      "nameArabic": "الترا صوت",
+      "rssUrl": "https://www.ultrasawt.com/rss.xml",
+      "categoryId": "variety",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.ultrasawt.com&sz=128"
     }
   ]
 }
