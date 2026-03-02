@@ -1,191 +1,605 @@
 {
-  "version": 2,
+  "version": 5,
   "sources": [
     {
       "id": "bbc_arabic",
       "name": "BBC Arabic",
       "nameArabic": "بي بي سي عربي",
-      "rssUrl": "https://feeds.bbci.co.uk/arabic/rss.xml"
+      "rssUrl": "https://feeds.bbci.co.uk/arabic/rss.xml",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.bbc.com&sz=128"
     },
     {
       "id": "dw_arabic",
       "name": "DW Arabic",
       "nameArabic": "دويتشه فيله عربي",
-      "rssUrl": "https://rss.dw.com/xml/rss-ar-all"
+      "rssUrl": "https://rss.dw.com/xml/rss-ar-all",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.dw.com&sz=128"
     },
     {
       "id": "dw_arabic_sci",
       "name": "DW Science & Tech",
       "nameArabic": "دويتشه فيله - علوم وتكنولوجيا",
-      "rssUrl": "https://rss.dw.com/xml/rss-ar-sci"
+      "rssUrl": "https://rss.dw.com/xml/rss-ar-sci",
+      "categoryId": "tech",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.dw.com&sz=128"
     },
     {
       "id": "dw_arabic_cul",
       "name": "DW Culture",
       "nameArabic": "دويتشه فيله - ثقافة ومجتمع",
-      "rssUrl": "https://rss.dw.com/xml/rss-ar-cul"
+      "rssUrl": "https://rss.dw.com/xml/rss-ar-cul",
+      "categoryId": "variety",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.dw.com&sz=128"
     },
     {
       "id": "france24",
       "name": "France 24",
       "nameArabic": "فرانس 24",
-      "rssUrl": "https://www.france24.com/ar/rss"
+      "rssUrl": "https://www.france24.com/ar/rss",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.france24.com&sz=128"
     },
     {
       "id": "france24_me",
       "name": "France 24 Middle East",
       "nameArabic": "فرانس 24 - الشرق الأوسط",
-      "rssUrl": "https://www.france24.com/ar/الشرق-الأوسط/rss"
+      "rssUrl": "https://www.france24.com/ar/الشرق-الأوسط/rss",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.france24.com&sz=128"
     },
     {
       "id": "france24_eco",
       "name": "France 24 Economy",
       "nameArabic": "فرانس 24 - اقتصاد",
-      "rssUrl": "https://www.france24.com/ar/اقتصاد/rss"
+      "rssUrl": "https://www.france24.com/ar/اقتصاد/rss",
+      "categoryId": "economy",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.france24.com&sz=128"
     },
     {
       "id": "france24_sports",
       "name": "France 24 Sports",
       "nameArabic": "فرانس 24 - رياضة",
-      "rssUrl": "https://www.france24.com/ar/رياضة/rss"
+      "rssUrl": "https://www.france24.com/ar/رياضة/rss",
+      "categoryId": "sports",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.france24.com&sz=128"
     },
     {
       "id": "cnn_arabic",
       "name": "CNN Arabic",
       "nameArabic": "سي إن إن عربي",
-      "rssUrl": "https://arabic.cnn.com/api/v1/rss/rss.xml"
+      "rssUrl": "https://arabic.cnn.com/api/v1/rss/rss.xml",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=arabic.cnn.com&sz=128"
     },
     {
       "id": "cnn_arabic_tech",
       "name": "CNN Tech",
       "nameArabic": "سي إن إن - تقنية",
-      "rssUrl": "https://arabic.cnn.com/api/v1/rss/tech/rss.xml"
+      "rssUrl": "https://arabic.cnn.com/api/v1/rss/tech/rss.xml",
+      "categoryId": "tech",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=arabic.cnn.com&sz=128"
     },
     {
       "id": "cnn_arabic_sport",
       "name": "CNN Sport",
       "nameArabic": "سي إن إن - رياضة",
-      "rssUrl": "https://arabic.cnn.com/api/v1/rss/sport/rss.xml"
+      "rssUrl": "https://arabic.cnn.com/api/v1/rss/sport/rss.xml",
+      "categoryId": "sports",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=arabic.cnn.com&sz=128"
     },
     {
       "id": "cnn_arabic_health",
       "name": "CNN Health",
       "nameArabic": "سي إن إن - صحة",
-      "rssUrl": "https://arabic.cnn.com/api/v1/rss/health/rss.xml"
+      "rssUrl": "https://arabic.cnn.com/api/v1/rss/health/rss.xml",
+      "categoryId": "health",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=arabic.cnn.com&sz=128"
     },
     {
       "id": "cnn_arabic_biz",
       "name": "CNN Business",
       "nameArabic": "سي إن إن - اقتصاد",
-      "rssUrl": "https://arabic.cnn.com/api/v1/rss/business/rss.xml"
+      "rssUrl": "https://arabic.cnn.com/api/v1/rss/business/rss.xml",
+      "categoryId": "economy",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=arabic.cnn.com&sz=128"
     },
     {
       "id": "cnn_arabic_sci",
       "name": "CNN Science",
       "nameArabic": "سي إن إن - علوم",
-      "rssUrl": "https://arabic.cnn.com/api/v1/rss/science/rss.xml"
+      "rssUrl": "https://arabic.cnn.com/api/v1/rss/science/rss.xml",
+      "categoryId": "tech",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=arabic.cnn.com&sz=128"
     },
     {
       "id": "aawsat",
       "name": "Asharq Al-Awsat",
       "nameArabic": "الشرق الأوسط",
-      "rssUrl": "https://aawsat.com/feed"
+      "rssUrl": "https://aawsat.com/feed",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=aawsat.com&sz=128"
     },
     {
       "id": "alquds",
       "name": "Al Quds Al Arabi",
       "nameArabic": "القدس العربي",
-      "rssUrl": "https://www.alquds.co.uk/feed/"
+      "rssUrl": "https://www.alquds.co.uk/feed/",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.alquds.co.uk&sz=128"
     },
     {
       "id": "aljazeera",
       "name": "Al Jazeera",
       "nameArabic": "الجزيرة",
-      "rssUrl": "https://www.aljazeera.net/feed"
+      "rssUrl": "https://www.aljazeera.net/feed",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.aljazeera.net&sz=128"
     },
     {
       "id": "sky_arabic",
       "name": "Sky News Arabia",
       "nameArabic": "سكاي نيوز عربية",
-      "rssUrl": "https://www.skynewsarabia.com/rss.xml"
+      "rssUrl": "https://www.skynewsarabia.com/rss.xml",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.skynewsarabia.com&sz=128"
     },
     {
       "id": "alaraby",
       "name": "Al Araby Al Jadeed",
       "nameArabic": "العربي الجديد",
-      "rssUrl": "https://www.alaraby.co.uk/feed"
+      "rssUrl": "https://www.alaraby.co.uk/feed",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.alaraby.co.uk&sz=128"
     },
     {
       "id": "almasry",
       "name": "Al-Masry Al-Youm",
       "nameArabic": "المصري اليوم",
-      "rssUrl": "https://www.almasryalyoum.com/rss/rssfeeds"
+      "rssUrl": "https://www.almasryalyoum.com/rss/rssfeeds",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.almasryalyoum.com&sz=128"
     },
     {
       "id": "noonpost",
       "name": "Noon Post",
       "nameArabic": "نون بوست",
-      "rssUrl": "https://www.noonpost.com/feed/"
+      "rssUrl": "https://www.noonpost.com/feed/",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.noonpost.com&sz=128"
     },
     {
       "id": "aitnews",
       "name": "AIT News",
       "nameArabic": "البوابة العربية للأخبار التقنية",
-      "rssUrl": "https://aitnews.com/feed/"
+      "rssUrl": "https://aitnews.com/feed/",
+      "categoryId": "tech",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=aitnews.com&sz=128"
     },
     {
       "id": "arabhardware",
       "name": "Arab Hardware",
       "nameArabic": "عرب هاردوير",
-      "rssUrl": "https://arabhardware.net/feed/"
+      "rssUrl": "https://arabhardware.net/feed/",
+      "categoryId": "tech",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=arabhardware.net&sz=128"
     },
     {
       "id": "dailymedicalinfo",
       "name": "DailyMedicalInfo",
       "nameArabic": "ديلي ميديكال إنفو",
-      "rssUrl": "https://www.dailymedicalinfo.com/feed/"
+      "rssUrl": "https://www.dailymedicalinfo.com/feed/",
+      "categoryId": "health",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=dailymedicalinfo.com&sz=128"
     },
     {
       "id": "7iber",
       "name": "7iber",
       "nameArabic": "حبر",
-      "rssUrl": "https://www.7iber.com/feed/"
+      "rssUrl": "https://www.7iber.com/feed/",
+      "categoryId": "variety",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.7iber.com&sz=128"
     },
     {
       "id": "arabianbusiness",
       "name": "Arabian Business",
       "nameArabic": "أريبيان بزنس",
-      "rssUrl": "https://arabic.arabianbusiness.com/feed"
+      "rssUrl": "https://arabic.arabianbusiness.com/feed",
+      "categoryId": "economy",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=arabic.arabianbusiness.com&sz=128"
     },
     {
       "id": "investing",
       "name": "Investing.com",
       "nameArabic": "Investing.com عربي",
-      "rssUrl": "https://sa.investing.com/rss/news.rss"
+      "rssUrl": "https://sa.investing.com/rss/news.rss",
+      "categoryId": "economy",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=sa.investing.com&sz=128"
     },
     {
       "id": "techwd",
       "name": "Tech-WD",
       "nameArabic": "عالم التقنية",
-      "rssUrl": "https://www.tech-wd.com/wd/feed/"
+      "rssUrl": "https://www.tech-wd.com/wd/feed/",
+      "categoryId": "tech",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.tech-wd.com&sz=128"
     },
     {
       "id": "unlimittech",
       "name": "Unlimit-Tech",
       "nameArabic": "التقنية بلا حدود",
-      "rssUrl": "https://www.unlimit-tech.com/feed/"
+      "rssUrl": "https://www.unlimit-tech.com/feed/",
+      "categoryId": "tech",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.unlimit-tech.com&sz=128"
     },
     {
       "id": "taqniatimes",
       "name": "TaqniaTimes",
       "nameArabic": "تقنية تايمز",
-      "rssUrl": "https://taqniatimes.com/rss/latest-posts"
+      "rssUrl": "https://taqniatimes.com/rss/latest-posts",
+      "categoryId": "tech",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=taqniatimes.com&sz=128"
     },
     {
       "id": "3sri",
       "name": "3sri.net",
       "nameArabic": "عصري",
-      "rssUrl": "https://3sri.net/feed"
+      "rssUrl": "https://3sri.net/feed",
+      "categoryId": "tech",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=3sri.net&sz=128"
+    },
+    {
+      "id": "ومضة",
+      "name": "ومضة",
+      "nameArabic": "ومضة",
+      "rssUrl": "https://www.wamda.com/feed",
+      "categoryId": "tech",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.wamda.com&sz=128"
+    },
+    {
+      "id": "عرب_اوفركلوكرز",
+      "name": "عرب اوفركلوكرز",
+      "nameArabic": "عرب اوفركلوكرز",
+      "rssUrl": "https://araboverclockers.net/feed/",
+      "categoryId": "tech",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=araboverclockers.net&sz=128"
+    },
+    {
+      "id": "مينا_تك",
+      "name": "مينا تك",
+      "nameArabic": "مينا تك",
+      "rssUrl": "https://mina-tech.com/feed",
+      "categoryId": "tech",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=mina-tech.com&sz=128"
+    },
+    {
+      "id": "سوالف_تك",
+      "name": "سوالف تك",
+      "nameArabic": "سوالف تك",
+      "rssUrl": "https://www.swalif.net/feed/",
+      "categoryId": "tech",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.swalif.net&sz=128"
+    },
+    {
+      "id": "عرب_جيمرز",
+      "name": "عرب جيمرز",
+      "nameArabic": "عرب جيمرز",
+      "rssUrl": "https://arabgamerz.com/feed/",
+      "categoryId": "tech",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=arabgamerz.com&sz=128"
+    },
+    {
+      "id": "أراجيك_تك",
+      "name": "أراجيك تك",
+      "nameArabic": "أراجيك تك",
+      "rssUrl": "https://backend.arageek.com/tWh65b/feed",
+      "categoryId": "tech",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.arageek.com&sz=128"
+    },
+    {
+      "id": "صدى_التقنية",
+      "name": "صدى التقنية",
+      "nameArabic": "صدى التقنية",
+      "rssUrl": "https://tech-echo.com/feed/",
+      "categoryId": "tech",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=tech-echo.com&sz=128"
+    },
+    {
+      "id": "ام_اي_تي_تكنولوجي_ريفيو",
+      "name": "ام اي تي تكنولوجي ريفيو",
+      "nameArabic": "ام اي تي تكنولوجي ريفيو",
+      "rssUrl": "https://technologyreview.ae/feed",
+      "categoryId": "tech",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=technologyreview.ae&sz=128"
+    },
+    {
+      "id": "قناة_يورونيوز",
+      "name": "قناة يورونيوز",
+      "nameArabic": "قناة يورونيوز",
+      "rssUrl": "https://arabic.euronews.com/rss.xml",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=arabic.euronews.com&sz=128"
+    },
+    {
+      "id": "قناة_روسيا_اليوم",
+      "name": "قناة روسيا اليوم",
+      "nameArabic": "قناة روسيا اليوم",
+      "rssUrl": "https://ar.rt.com/rss/",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=ar.rt.com&sz=128"
+    },
+    {
+      "id": "قناة_الحرة",
+      "name": "قناة الحرة",
+      "nameArabic": "قناة الحرة",
+      "rssUrl": "https://alhurra.com/feed",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=alhurra.com&sz=128"
+    },
+    {
+      "id": "عربي_trt",
+      "name": "عربي TRT",
+      "nameArabic": "عربي TRT",
+      "rssUrl": "https://www.trtarabi.com/feed/rss.xml",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.trtarabi.com&sz=128"
+    },
+    {
+      "id": "أخبار_الآن",
+      "name": "أخبار الآن",
+      "nameArabic": "أخبار الآن",
+      "rssUrl": "https://akhbaralaan.net/feed/podcast",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=akhbaralaan.net&sz=128"
+    },
+    {
+      "id": "الجزيرة_عاجل",
+      "name": "الجزيرة عاجل",
+      "nameArabic": "الجزيرة عاجل",
+      "rssUrl": "https://www.aljazeera.net/aljazeerarss/a7c186be-1baa-4bd4-9d80-a84db769f779/73d0e1b4-532f-45ef-b135-bfdff8b8cab9",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.aljazeera.net&sz=128"
+    },
+    {
+      "id": "قناة_الجزيرة_مباشر",
+      "name": "قناة الجزيرة مباشر",
+      "nameArabic": "قناة الجزيرة مباشر",
+      "rssUrl": "https://mubasher.aljazeera.net/rss.xml",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=mubasher.aljazeera.net&sz=128"
+    },
+    {
+      "id": "التلفزيون_العربي",
+      "name": "التلفزيون العربي",
+      "nameArabic": "التلفزيون العربي",
+      "rssUrl": "https://alaraby.com/feed",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=alaraby.com&sz=128"
+    },
+    {
+      "id": "الشرق_عاجل",
+      "name": "الشرق عاجل",
+      "nameArabic": "الشرق عاجل",
+      "rssUrl": "https://asharq.com/rss.xml",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=asharq.com&sz=128"
+    },
+    {
+      "id": "وكالة_الأناضول",
+      "name": "وكالة الأناضول",
+      "nameArabic": "وكالة الأناضول",
+      "rssUrl": "https://www.aa.com.tr/rss/",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.aa.com.tr&sz=128"
+    },
+    {
+      "id": "وكالة_سبوتنيك",
+      "name": "وكالة سبوتنيك",
+      "nameArabic": "وكالة سبوتنيك",
+      "rssUrl": "https://sarabic.ae/export/rss2/archive/index.xml",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=sputnikarabic.ae&sz=128"
+    },
+    {
+      "id": "وكالة_فيدس",
+      "name": "وكالة فيدس",
+      "nameArabic": "وكالة فيدس",
+      "rssUrl": "https://www.fides.org/rss",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.fides.org&sz=128"
+    },
+    {
+      "id": "فوربس_الشرق_الأوسط",
+      "name": "فوربس الشرق الأوسط",
+      "nameArabic": "فوربس الشرق الأوسط",
+      "rssUrl": "https://www.forbesmiddleeast.com/feed",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.forbesmiddleeast.com&sz=128"
+    },
+    {
+      "id": "إندبندنت_عربية",
+      "name": "إندبندنت عربية",
+      "nameArabic": "إندبندنت عربية",
+      "rssUrl": "https://www.independentarabia.com/rss.xml",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.independentarabia.com&sz=128"
+    },
+    {
+      "id": "ميدل_إيست_أونلاين",
+      "name": "ميدل إيست أونلاين",
+      "nameArabic": "ميدل إيست أونلاين",
+      "rssUrl": "https://middle-east-online.com/rss.xml",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=middle-east-online.com&sz=128"
+    },
+    {
+      "id": "اقتصاد_اليوم___السعودية",
+      "name": "اقتصاد اليوم - السعودية",
+      "nameArabic": "اقتصاد اليوم - السعودية",
+      "rssUrl": "https://www.economy-today.com/feed/",
+      "categoryId": "economy",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.economy-today.com&sz=128"
+    },
+    {
+      "id": "جريدة_البورصة",
+      "name": "جريدة البورصة",
+      "nameArabic": "جريدة البورصة",
+      "rssUrl": "https://www.alborsaanews.com/feed",
+      "categoryId": "economy",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.alborsaanews.com&sz=128"
+    },
+    {
+      "id": "هارفارد_بزنس_ريفيو",
+      "name": "هارفارد بزنس ريفيو",
+      "nameArabic": "هارفارد بزنس ريفيو",
+      "rssUrl": "https://hbrarabic.com/feed",
+      "categoryId": "economy",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=hbrarabic.com&sz=128"
+    },
+    {
+      "id": "ستانفورد_للابتكار_الاجتماعي",
+      "name": "ستانفورد للابتكار الاجتماعي",
+      "nameArabic": "ستانفورد للابتكار الاجتماعي",
+      "rssUrl": "https://ssirarabia.com/feed",
+      "categoryId": "economy",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=ssirarabia.com&sz=128"
+    },
+    {
+      "id": "ايكونومي_بلس",
+      "name": "ايكونومي بلس",
+      "nameArabic": "ايكونومي بلس",
+      "rssUrl": "https://economyplusme.com/feed",
+      "categoryId": "economy",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=economyplusme.com&sz=128"
+    },
+    {
+      "id": "الطاقة",
+      "name": "الطاقة",
+      "nameArabic": "الطاقة",
+      "rssUrl": "https://attaqa.net/feed/",
+      "categoryId": "economy",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=attaqa.net&sz=128"
+    },
+    {
+      "id": "جريدة_الاستثمار_العربي",
+      "name": "جريدة الاستثمار العربي",
+      "nameArabic": "جريدة الاستثمار العربي",
+      "rssUrl": "https://invest-gate.me/feed",
+      "categoryId": "economy",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=invest-gate.me&sz=128"
+    },
+    {
+      "id": "موقع_إنت_عربي",
+      "name": "موقع إنت عربي",
+      "nameArabic": "موقع إنت عربي",
+      "rssUrl": "https://entarabi.com/feed/",
+      "categoryId": "economy",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=entarabi.com&sz=128"
+    },
+    {
+      "id": "ملاعب",
+      "name": "ملاعب",
+      "nameArabic": "ملاعب",
+      "rssUrl": "https://mala3eb.com/rss",
+      "categoryId": "sports",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=mala3eb.com&sz=128"
+    },
+    {
+      "id": "هاي_كورة",
+      "name": "هاي كورة",
+      "nameArabic": "هاي كورة",
+      "rssUrl": "https://hihi2.com/feed",
+      "categoryId": "sports",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=hihi2.com&sz=128"
+    },
+    {
+      "id": "موقع_بالجول",
+      "name": "موقع بالجول",
+      "nameArabic": "موقع بالجول",
+      "rssUrl": "https://www.palgoal.com/feed",
+      "categoryId": "sports",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.palgoal.com&sz=128"
+    },
+    {
+      "id": "ايجي_24_سبورت",
+      "name": "ايجي 24 سبورت",
+      "nameArabic": "ايجي 24 سبورت",
+      "rssUrl": "https://egy24.news/feed/",
+      "categoryId": "sports",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=egy24.news&sz=128"
+    },
+    {
+      "id": "كووورة",
+      "name": "كووورة",
+      "nameArabic": "كووورة",
+      "rssUrl": "https://feeds.footballco.com/kooora/feed/6p5bsxot7te8yick",
+      "categoryId": "sports",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.kooora.com&sz=128"
+    },
+    {
+      "id": "winwin",
+      "name": "winwin",
+      "nameArabic": "winwin",
+      "rssUrl": "https://www.winwin.com/rss",
+      "categoryId": "sports",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.winwin.com&sz=128"
+    },
+    {
+      "id": "البوابة___رياضة",
+      "name": "البوابة - رياضة",
+      "nameArabic": "البوابة - رياضة",
+      "rssUrl": "https://www.albawaba.com/rss.xml",
+      "categoryId": "sports",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.albawaba.com&sz=128"
+    },
+    {
+      "id": "صحيفة_اليوم_السابع",
+      "name": "صحيفة اليوم السابع",
+      "nameArabic": "صحيفة اليوم السابع",
+      "rssUrl": "https://www.youm7.com/rss/SectionRss?SectionID=203",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.youm7.com&sz=128"
+    },
+    {
+      "id": "جريدة_الشروق",
+      "name": "جريدة الشروق",
+      "nameArabic": "جريدة الشروق",
+      "rssUrl": "https://www.shorouknews.com/egypt/rss",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.shorouknews.com&sz=128"
+    },
+    {
+      "id": "كبسولة_الصحية",
+      "name": "كبسولة الصحية",
+      "nameArabic": "كبسولة الصحية",
+      "rssUrl": "https://capsuleh.com/feed/",
+      "categoryId": "health",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.capsuleh.com&sz=128"
+    },
+    {
+      "id": "الكونسلتو",
+      "name": "الكونسلتو",
+      "nameArabic": "الكونسلتو",
+      "rssUrl": "https://www.elconsolto.com/feed/sitemap",
+      "categoryId": "health",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.elconsolto.com&sz=128"
+    },
+    {
+      "id": "صحتك",
+      "name": "صحتك",
+      "nameArabic": "صحتك",
+      "rssUrl": "https://www.sehatok.com/feed",
+      "categoryId": "health",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.sehatok.com&sz=128"
+    },
+    {
+      "id": "مجلة_نقطة_العلمية",
+      "name": "مجلة نقطة العلمية",
+      "nameArabic": "مجلة نقطة العلمية",
+      "rssUrl": "https://nok6a.net/feed",
+      "categoryId": "variety",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=nok6a.net&sz=128"
     }
   ]
 }
