@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "sources": [
     {
       "id": "bbc_arabic",
@@ -297,14 +297,7 @@
       "categoryId": "tech",
       "iconUrl": "https://www.google.com/s2/favicons?domain=www.arageek.com&sz=128"
     },
-    {
-      "id": "صدى_التقنية",
-      "name": "صدى التقنية",
-      "nameArabic": "صدى التقنية",
-      "rssUrl": "https://tech-echo.com/feed/",
-      "categoryId": "tech",
-      "iconUrl": "https://www.google.com/s2/favicons?domain=tech-echo.com&sz=128"
-    },
+
     {
       "id": "ام_اي_تي_تكنولوجي_ريفيو",
       "name": "ام اي تي تكنولوجي ريفيو",
@@ -317,7 +310,7 @@
       "id": "قناة_يورونيوز",
       "name": "قناة يورونيوز",
       "nameArabic": "قناة يورونيوز",
-      "rssUrl": "https://arabic.euronews.com/rss.xml",
+      "rssUrl": "https://arabic.euronews.com/rss",
       "categoryId": "news",
       "iconUrl": "https://www.google.com/s2/favicons?domain=arabic.euronews.com&sz=128"
     },
@@ -325,7 +318,7 @@
       "id": "قناة_روسيا_اليوم",
       "name": "قناة روسيا اليوم",
       "nameArabic": "قناة روسيا اليوم",
-      "rssUrl": "https://ar.rt.com/rss/",
+      "rssUrl": "https://arabic.rt.com/rss/",
       "categoryId": "news",
       "iconUrl": "https://www.google.com/s2/favicons?domain=ar.rt.com&sz=128"
     },
@@ -385,14 +378,7 @@
       "categoryId": "news",
       "iconUrl": "https://www.google.com/s2/favicons?domain=asharq.com&sz=128"
     },
-    {
-      "id": "وكالة_الأناضول",
-      "name": "وكالة الأناضول",
-      "nameArabic": "وكالة الأناضول",
-      "rssUrl": "https://www.aa.com.tr/rss/",
-      "categoryId": "news",
-      "iconUrl": "https://www.google.com/s2/favicons?domain=www.aa.com.tr&sz=128"
-    },
+
     {
       "id": "وكالة_سبوتنيك",
       "name": "وكالة سبوتنيك",
@@ -545,14 +531,7 @@
       "categoryId": "sports",
       "iconUrl": "https://www.google.com/s2/favicons?domain=www.albawaba.com&sz=128"
     },
-    {
-      "id": "صحيفة_اليوم_السابع",
-      "name": "صحيفة اليوم السابع",
-      "nameArabic": "صحيفة اليوم السابع",
-      "rssUrl": "https://www.youm7.com/rss/SectionRss?SectionID=203",
-      "categoryId": "news",
-      "iconUrl": "https://www.google.com/s2/favicons?domain=www.youm7.com&sz=128"
-    },
+
     {
       "id": "جريدة_الشروق",
       "name": "جريدة الشروق",
