@@ -1,5 +1,5 @@
 {
-  "version": 8,
+  "version": 9,
   "sources": [
     {
       "id": "bbc_arabic",
@@ -587,6 +587,22 @@
       "rssUrl": "https://www.ultrasawt.com/rss.xml",
       "categoryId": "variety",
       "iconUrl": "https://www.google.com/s2/favicons?domain=www.ultrasawt.com&sz=128"
+    },
+    {
+      "id": "cnbc_arabia",
+      "name": "CNBC Arabia",
+      "nameArabic": "CNBC عربية",
+      "rssUrl": "https://news.google.com/rss/search?q=site:cnbcarabia.com+when:1d&hl=ar&gl=EG&ceid=EG:ar",
+      "categoryId": "economy",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=cnbcarabia.com&sz=128"
+    },
+    {
+      "id": "youm7",
+      "name": "Youm7",
+      "nameArabic": "اليوم السابع",
+      "rssUrl": "https://news.google.com/rss/search?q=site:youm7.com+when:1d&hl=ar&gl=EG&ceid=EG:ar",
+      "categoryId": "news",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=youm7.com&sz=128"
     }
   ]
 }
