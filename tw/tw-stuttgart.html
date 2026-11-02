@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stuttgart Dashboard — Time & Weather</title>
+  <meta name="description" content="Live time and weather dashboard for Stuttgart, Germany. Current conditions and 4-day forecast.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-card: #0f1a24;
+      --border-card: rgba(100, 160, 220, 0.12);
+      --text-primary: #e8edf4;
+      --text-secondary: rgba(180, 200, 225, 0.65);
+      --text-muted: rgba(172, 196, 228, 0.78);
+      --accent-blue: #7ab4f5;
+      --accent-cyan: #6cc8df;
+      --accent-orange: #ffb347;
+      --accent-pink: #f78da7;
+      --radius-sm: 12px;
+      --radius-md: 20px;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: 
+        radial-gradient(circle at 15% 15%, rgba(20, 45, 70, 0.16) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(18, 38, 60, 0.16) 0%, transparent 40%),
+        linear-gradient(170deg, #080d12 0%, #0b141c 40%, #090f16 100%);
+      color: var(--text-primary);
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+      cursor: none;
+    }
+
+    /* ===== MAIN LAYOUT ===== */
+    .dashboard {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 8px 16px 12px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: stretch;
+    }
+
+    /* ===== CARD ===== */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+    }
+
+    /* ===== TIME SECTION ===== */
+    .time-section {
+      text-align: center;
+      padding: 18px 20px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      position: relative;
+    }
+    .battery-pill {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 12px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+    .battery-pill.good { color: #4ade80; }
+    .battery-pill.warn { color: var(--accent-orange); }
+    .battery-pill.low { color: #f87171; }
+    .battery-pill.charging { color: var(--accent-cyan); }
+    .battery-icon {
+      width: 24px;
+      height: 13px;
+      display: block;
+    }
+    .battery-fill {
+      transition: width 0.3s ease;
+    }
+    .time-wrap {
+      display: inline-flex;
+      align-items: baseline;
+    }
+    .time-display {
+      font-size: clamp(6rem, 33vw, 33rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 0.92;
+      color: #ffffff;
+    }
+    .time-ampm {
+      margin-left: 10px;
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      font-weight: 500;
+      color: var(--accent-cyan);
+      line-height: 1;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .time-separator {
+      color: #ffffff;
+      opacity: 1;
+    }
+    .time-location {
+      position: absolute;
+      bottom: 16px;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--text-secondary);
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-weight: 400;
+      pointer-events: none;
+    }
+    .time-location svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      stroke: var(--accent-pink);
+      stroke-width: 1.5;
+      fill: none;
+    }
+
+    /* ===== DATE & LOCATION ROW ===== */
+    .date-section {
+      text-align: center;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+    }
+    .date-day-name {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 700;
+      color: var(--accent-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 6px;
+    }
+    .date-full {
+      font-size: clamp(2.1rem, 4.5vw, 2.8rem);
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .location-pin {
+      width: 22px; height: 22px;
+      fill: none;
+      stroke: var(--accent-pink);
+      stroke-width: 1.5;
+      flex-shrink: 0;
+    }
+    .location-text {
+      font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+      font-weight: 400;
+      color: var(--text-secondary);
+      letter-spacing: 0.04em;
+    }
+    .location-text strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* ===== CURRENT WEATHER ===== */
+    .weather-current {
+      padding: 14px 20px;
+    }
+    .weather-current-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .section-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(196, 216, 242, 0.92);
+    }
+    .section-updated {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+    .live-dot {
+      width: 7px; height: 7px;
+      background: #4ade80;
+      border-radius: 50%;
+      box-shadow: 0 0 6px rgba(74, 222, 128, 0.6);
+    }
+    .live-dot.stale {
+      background: var(--accent-orange);
+      box-shadow: 0 0 6px rgba(255, 179, 71, 0.6);
+    }
+
+    .weather-main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .weather-icon-wrap {
+      position: relative;
+      width: 84px; height: 84px;
+      flex-shrink: 0;
+    }
+    .weather-icon {
+      font-size: 5rem;
+      line-height: 1;
+      text-align: center;
+      display: block;
+    }
+
+    .weather-temp-block {
+      text-align: center;
+    }
+    .weather-temp {
+      font-size: clamp(4rem, 11vw, 6rem);
+      font-weight: 700;
+      line-height: 0.95;
+      color: #ffffff;
+    }
+    .weather-desc {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-weight: 400;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      text-transform: capitalize;
+    }
+
+    .weather-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .weather-detail-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--radius-sm);
+      padding: 6px 8px;
+      text-align: center;
+    }
+    .detail-label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(202, 220, 244, 0.95);
+      margin-bottom: 4px;
+    }
+    .detail-value {
+      font-size: 2.1rem;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1.1;
+    }
+    .detail-unit {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    /* ===== 4-DAY FORECAST ===== */
+    .forecast-section {
+      padding: 14px 20px;
+      background: #0c131d;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .forecast-section .section-label {
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+    .forecast-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .forecast-day {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--radius-sm);
+      padding: 8px 6px;
+      text-align: center;
+      cursor: default;
+      position: relative;
+    }
+    .forecast-day-name {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(202, 220, 244, 0.95);
+      margin-bottom: 3px;
+    }
+    .forecast-icon {
+      font-size: 2.3rem;
+      margin-bottom: 3px;
+      display: block;
+      line-height: 1;
+    }
+    .forecast-temps {
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .forecast-high {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .forecast-low {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+    .forecast-desc-text {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-top: 3px;
+      text-transform: capitalize;
+      line-height: 1.1;
+    }
+    .forecast-wind {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    /* ===== REFRESH BUTTONS ===== */
+    .refresh-btn-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 2px;
+    }
+    .refresh-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border: 1px solid rgba(122, 180, 245, 0.25);
+      border-radius: 50px;
+      background: #0f1f2e;
+      color: var(--accent-cyan);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      outline: none;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .refresh-btn:active {
+      opacity: 0.8;
+    }
+    .refresh-btn svg {
+      width: 15px; height: 15px;
+    }
+    .refresh-btn.refreshing svg {
+      animation: spinRefresh 0.8s linear infinite;
+    }
+    .refresh-page-btn {
+      color: #a5b4fc;
+      border-color: rgba(165, 180, 252, 0.2);
+    }
+    @keyframes spinRefresh {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ===== STATUS BAR ===== */
+    .status-bar {
+      text-align: center;
+      padding: 0 10px;
+    }
+
+
+    /* ===== LOADING SPINNER ===== */
+    .loading-overlay {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 40px 20px;
+    }
+    .spinner {
+      width: 32px; height: 32px;
+      border: 2px solid rgba(255,255,255,0.08);
+      border-top-color: var(--accent-cyan);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== ERROR STATE ===== */
+    .error-msg {
+      text-align: center;
+      padding: 16px;
+      color: var(--accent-orange);
+      font-size: 0.85rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .dashboard { padding: 8px 10px 12px; gap: 8px; }
+      .card { padding: 12px 14px; border-radius: var(--radius-sm); }
+      .time-section { padding: 14px 12px 10px; }
+      .weather-current { padding: 12px 12px; }
+      .forecast-section { padding: 12px 12px; }
+      .weather-details { grid-template-columns: repeat(2, 1fr); }
+      .forecast-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+      .forecast-day { padding: 8px 6px; }
+    }
+
+    @media (min-width: 1200px) {
+      .dashboard { max-width: 1000px; }
+    }
+
+    /* ===== FADE IN ANIMATION ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    .fade-in:nth-child(1) { animation-delay: 0.05s; }
+    .fade-in:nth-child(2) { animation-delay: 0.12s; }
+    .fade-in:nth-child(3) { animation-delay: 0.18s; }
+    .fade-in:nth-child(4) { animation-delay: 0.25s; }
+    .fade-in:nth-child(5) { animation-delay: 0.32s; }
+    .fade-in:nth-child(6) { animation-delay: 0.38s; }
+
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+  </style>
+</head>
+<body>
+
+  <main class="dashboard" id="dashboard">
+
+    <!-- TIME -->
+    <section class="card time-section fade-in" id="time-card" aria-label="Current Time">
+      <div class="battery-pill" id="battery-pill" aria-label="Tablet Battery">
+        <svg class="battery-icon" viewBox="0 0 26 14" aria-hidden="true">
+          <rect x="1" y="1" width="20" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <rect class="battery-fill" x="3.5" y="3.5" width="15" height="7" rx="1" fill="currentColor"/>
+          <rect x="22.5" y="4.5" width="2.5" height="5" rx="1" fill="currentColor"/>
+        </svg>
+        <span id="battery-text">--%</span>
+      </div>
+      <div class="time-wrap">
+        <div class="time-display" id="time-display">
+          <span id="time-hours">--</span><span class="time-separator" id="time-sep">:</span><span id="time-minutes">--</span>
+        </div>
+        <div class="time-ampm" id="time-ampm">--</div>
+      </div>
+      <div class="time-location" id="time-location">
+        <svg class="location-pin" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="9" r="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="location-text"><strong>Stuttgart</strong>, Germany</div>
+      </div>
+    </section>
+
+    <!-- DATE ROW (full width) -->
+    <section class="card date-section fade-in" id="date-card" aria-label="Current Date">
+      <div class="date-day-name" id="date-day-name">---</div>
+      <div class="date-full" id="date-full">--- --, ----</div>
+    </section>
+
+    <!-- CURRENT WEATHER -->
+    <section class="card weather-current fade-in" id="weather-current-card" aria-label="Current Weather">
+      <div class="weather-current-header">
+        <div class="live-dot"></div>
+        <span class="section-label">Current Weather</span>
+        <span class="section-updated" id="weather-updated">(Updating…)</span>
+      </div>
+      <div id="weather-current-content">
+        <div class="loading-overlay">
+          <div class="spinner"></div>
+          <div class="loading-text">Fetching weather data…</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4-DAY FORECAST -->
+    <section class="card forecast-section fade-in" id="forecast-card" aria-label="4-Day Forecast">
+      <div class="section-label">4-Day Forecast</div>
+      <div id="forecast-content">
+        <div class="loading-overlay">
+          <div class="spinner"></div>
+          <div class="loading-text">Loading forecast…</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATUS + REFRESH -->
+    <div class="status-bar fade-in" id="status-bar">
+      <div class="refresh-btn-wrap">
+        <button class="refresh-btn" id="refresh-btn" onclick="manualRefresh()" title="Refresh Weather Data">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <polyline points="1 20 1 14 7 14"></polyline>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+          </svg>
+          Refresh Weather
+        </button>
+        <button class="refresh-btn refresh-page-btn" id="reload-page-btn" onclick="reloadPage()" title="Reload Entire Page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"></path>
+          </svg>
+          Reload Page
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    /* ============================================================
+       Stuttgart Time & Weather Dashboard
+       Using Open-Meteo API (free, no API key)
+       Stuttgart: 48.7758°N, 9.1829°E, Timezone: Europe/Berlin
+    ============================================================ */
+
+    const STUTTGART_LAT = 48.7758;
+    const STUTTGART_LON = 9.1829;
+    const TIMEZONE = 'Europe/Berlin';
+
+    // ---- WMO Weather Code Mapping ----
+    const WMO_CODES = {
+      0:  { desc: 'Clear Sky',           icon: '☀️', night: '🌙' },
+      1:  { desc: 'Mainly Clear',        icon: '🌤️', night: '🌙' },
+      2:  { desc: 'Partly Cloudy',       icon: '⛅',  night: '☁️' },
+      3:  { desc: 'Overcast',            icon: '☁️',  night: '☁️' },
+      45: { desc: 'Fog',                 icon: '🌫️', night: '🌫️' },
+      48: { desc: 'Depositing Rime Fog', icon: '🌫️', night: '🌫️' },
+      51: { desc: 'Light Drizzle',       icon: '🌦️', night: '🌧️' },
+      53: { desc: 'Moderate Drizzle',    icon: '🌦️', night: '🌧️' },
+      55: { desc: 'Dense Drizzle',       icon: '🌧️', night: '🌧️' },
+      56: { desc: 'Freezing Drizzle',    icon: '🌧️', night: '🌧️' },
+      57: { desc: 'Heavy Freezing Drizzle', icon: '🌧️', night: '🌧️' },
+      61: { desc: 'Slight Rain',         icon: '🌦️', night: '🌧️' },
+      63: { desc: 'Moderate Rain',       icon: '🌧️', night: '🌧️' },
+      65: { desc: 'Heavy Rain',          icon: '🌧️', night: '🌧️' },
+      66: { desc: 'Light Freezing Rain', icon: '🌧️', night: '🌧️' },
+      67: { desc: 'Heavy Freezing Rain', icon: '🌧️', night: '🌧️' },
+      71: { desc: 'Slight Snowfall',     icon: '🌨️', night: '🌨️' },
+      73: { desc: 'Moderate Snowfall',   icon: '🌨️', night: '🌨️' },
+      75: { desc: 'Heavy Snowfall',      icon: '❄️',  night: '❄️' },
+      77: { desc: 'Snow Grains',         icon: '🌨️', night: '🌨️' },
+      80: { desc: 'Slight Rain Showers', icon: '🌦️', night: '🌧️' },
+      81: { desc: 'Moderate Rain Showers', icon: '🌧️', night: '🌧️' },
+      82: { desc: 'Violent Rain Showers',  icon: '⛈️', night: '⛈️' },
+      85: { desc: 'Slight Snow Showers', icon: '🌨️', night: '🌨️' },
+      86: { desc: 'Heavy Snow Showers',  icon: '❄️',  night: '❄️' },
+      95: { desc: 'Thunderstorm',        icon: '⛈️',  night: '⛈️' },
+      96: { desc: 'Thunderstorm with Slight Hail', icon: '⛈️', night: '⛈️' },
+      99: { desc: 'Thunderstorm with Heavy Hail',  icon: '⛈️', night: '⛈️' },
+    };
+
+    function getWeatherInfo(code, isNight) {
+      const info = WMO_CODES[code] || { desc: 'Unknown', icon: '❓', night: '❓' };
+      return { desc: info.desc, icon: isNight ? info.night : info.icon };
+    }
+
+    // ---- Time Functions (Stuttgart timezone) ----
+    function getStuttgartTime() {
+      return new Date(new Date().toLocaleString('en-US', { timeZone: TIMEZONE }));
+    }
+
+    function updateTime() {
+      const now = getStuttgartTime();
+      let hours = now.getHours();
+      const minutes = now.getMinutes();
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+
+      hours = hours % 12;
+      if (hours === 0) hours = 12;
+
+      document.getElementById('time-hours').textContent = hours;
+      document.getElementById('time-minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('time-ampm').textContent = ampm;
+    }
+
+    function updateDate() {
+      const now = getStuttgartTime();
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const months = ['January', 'February', 'March', 'April', 'May', 'June',
+                      'July', 'August', 'September', 'October', 'November', 'December'];
+
+      document.getElementById('date-day-name').textContent = days[now.getDay()];
+      document.getElementById('date-full').textContent =
+        `${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
+    }
+
+    // ---- Weather Fetch (Open-Meteo, free, no API key) ----
+    let weatherHasData = false;
+
+    async function fetchWeather() {
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${STUTTGART_LAT}&longitude=${STUTTGART_LON}`
+        + `&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,wind_speed_10m,wind_direction_10m,weather_code,pressure_msl`
+        + `&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,wind_speed_10m_max,sunrise,sunset`
+        + `&timezone=${encodeURIComponent(TIMEZONE)}`
+        + `&wind_speed_unit=kmh`
+        + `&forecast_days=5`;
+
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        renderCurrentWeather(data);
+        renderForecast(data);
+        weatherHasData = true;
+        document.querySelector('.live-dot').classList.remove('stale');
+        updateStatus('Weather updated');
+      } catch (err) {
+        console.error('Weather fetch error:', err);
+        if (weatherHasData) {
+          document.querySelector('.live-dot').classList.add('stale');
+          updateStatus('Update failed — showing last data');
+        } else {
+          document.getElementById('weather-current-content').innerHTML =
+            `<div class="error-msg">⚠ Unable to fetch weather. Retrying in 20 min…</div>`;
+          document.getElementById('forecast-content').innerHTML =
+            `<div class="error-msg">⚠ Forecast unavailable.</div>`;
+          updateStatus('Update failed — retrying in 20 min');
+        }
+      }
+    }
+
+    function renderCurrentWeather(data) {
+      const c = data.current;
+      const isNight = c.is_day === 0;
+      const { desc, icon } = getWeatherInfo(c.weather_code, isNight);
+
+      const windDir = degreesToCardinal(c.wind_direction_10m);
+
+      const html = `
+        <div class="weather-main">
+          <div class="weather-icon-wrap">
+            <span class="weather-icon">${icon}</span>
+          </div>
+          <div class="weather-temp-block">
+            <div class="weather-temp">${Math.round(c.temperature_2m)}°C</div>
+            <div class="weather-desc">${desc}</div>
+          </div>
+        </div>
+        <div class="weather-details">
+          <div class="weather-detail-item">
+            <div class="detail-label">Feels Like</div>
+            <div class="detail-value">${Math.round(c.apparent_temperature)}°<span class="detail-unit">C</span></div>
+          </div>
+          <div class="weather-detail-item">
+            <div class="detail-label">Humidity</div>
+            <div class="detail-value">${c.relative_humidity_2m}<span class="detail-unit">%</span></div>
+          </div>
+          <div class="weather-detail-item">
+            <div class="detail-label">Wind</div>
+            <div class="detail-value">${Math.round(c.wind_speed_10m)} <span class="detail-unit">km/h ${windDir}</span></div>
+          </div>
+          <div class="weather-detail-item">
+            <div class="detail-label">Precipitation</div>
+            <div class="detail-value">${c.precipitation}<span class="detail-unit"> mm</span></div>
+          </div>
+        </div>
+      `;
+      document.getElementById('weather-current-content').innerHTML = html;
+    }
+
+    function renderForecast(data) {
+      const d = data.daily;
+      const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+      // Skip today (index 0), take next 4 days
+      let forecastHTML = '<div class="forecast-grid">';
+
+      for (let i = 1; i <= 4; i++) {
+        const date = new Date(d.time[i] + 'T12:00:00');
+        const dayName = days[date.getDay()];
+        const dateLabel = `${date.getDate()}/${date.getMonth() + 1}`;
+        const { desc, icon } = getWeatherInfo(d.weather_code[i], false);
+        const high = Math.round(d.temperature_2m_max[i]);
+        const low = Math.round(d.temperature_2m_min[i]);
+        const wind = Math.round(d.wind_speed_10m_max[i]);
+        const precip = d.precipitation_sum[i];
+
+        forecastHTML += `
+          <div class="forecast-day">
+            <div class="forecast-day-name">${dayName} ${dateLabel}</div>
+            <span class="forecast-icon">${icon}</span>
+            <div class="forecast-temps">
+              <span class="forecast-high">${high}°</span>
+              <span class="forecast-low">${low}°</span>
+            </div>
+            <div class="forecast-desc-text">${desc}</div>
+            <div class="forecast-wind">💨 ${wind} km/h · 💧 ${precip}mm</div>
+          </div>
+        `;
+      }
+
+      forecastHTML += '</div>';
+      document.getElementById('forecast-content').innerHTML = forecastHTML;
+    }
+
+    function degreesToCardinal(deg) {
+      const dirs = ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
+      return dirs[Math.round(deg / 22.5) % 16];
+    }
+
+    function updateStatus(msg) {
+      const el = document.getElementById('weather-updated');
+      if (!el) return;
+      if (msg === 'Weather updated') {
+        const now = getStuttgartTime();
+        const h = now.getHours() % 12 || 12;
+        const m = String(now.getMinutes()).padStart(2, '0');
+        const ap = now.getHours() >= 12 ? 'PM' : 'AM';
+        el.textContent = `(Updated ${h}:${m} ${ap})`;
+      } else {
+        el.textContent = `(${msg})`;
+      }
+    }
+
+    // ---- Manual Weather Refresh ----
+    async function manualRefresh() {
+      const btn = document.getElementById('refresh-btn');
+      if (btn.classList.contains('refreshing')) return; // prevent double-click
+      btn.classList.add('refreshing');
+      btn.disabled = true;
+      updateStatus('Refreshing weather…');
+      await fetchWeather();
+      btn.classList.remove('refreshing');
+      btn.disabled = false;
+    }
+
+    // ---- Reload Page (for Kiosk Mode) ----
+    function reloadPage() {
+      const btn = document.getElementById('reload-page-btn');
+      if (btn) {
+        btn.classList.add('refreshing');
+        btn.disabled = true;
+      }
+      updateStatus('Reloading page…');
+      setTimeout(() => {
+        window.location.reload();
+      }, 300);
+    }
+
+    // ---- Initialization ----
+    (function init() {
+      // Start time and date immediately
+      updateTime();
+      updateDate();
+
+      // Synchronize clock to update exactly at the start of each minute (0 CPU wakeups in-between)
+      function scheduleNextMinuteTick() {
+        const now = getStuttgartTime();
+        const msUntilNextMinute = (60 - now.getSeconds()) * 1000 - now.getMilliseconds() + 50;
+        setTimeout(() => {
+          updateTime();
+          updateDate();
+          scheduleNextMinuteTick();
+        }, Math.max(msUntilNextMinute, 100));
+      }
+      scheduleNextMinuteTick();
+
+      // Fetch weather immediately
+      fetchWeather();
+      // Refresh weather every 20 minutes
+      setInterval(fetchWeather, 20 * 60 * 1000);
+
+      // Battery indicator (reads from local sysfs via /home/shatrix/battery.json)
+      async function updateBattery() {
+        const pill = document.getElementById('battery-pill');
+        const text = document.getElementById('battery-text');
+        const fill = document.querySelector('.battery-fill');
+        try {
+          const res = await fetch('battery.json');
+          const data = await res.json();
+          if (data.error) {
+            text.textContent = 'n/a';
+            pill.className = 'battery-pill';
+          } else {
+            const pct = data.percent;
+            text.textContent = `${pct}%`;
+            fill.setAttribute('width', Math.max(0, Math.min(15, 15 * pct / 100)));
+            pill.classList.remove('good', 'warn', 'low', 'charging');
+            if (data.charging) {
+              pill.classList.add('charging');
+            } else if (pct > 50) {
+              pill.classList.add('good');
+            } else if (pct > 20) {
+              pill.classList.add('warn');
+            } else {
+              pill.classList.add('low');
+            }
+          }
+        } catch (e) {
+          text.textContent = 'n/a';
+          pill.className = 'battery-pill';
+        }
+        setTimeout(updateBattery, 5 * 60 * 1000);
+      }
+      updateBattery();
+    })();
+  </script>
+</body>
+</html>
